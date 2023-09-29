@@ -1,0 +1,22 @@
+{
+  "tabWidth": 4,
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "semi": true,
+  "printWidth": 1200,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "**/lwc/**/*.html",
+      "options": {
+        "parser": "lwc"
+      }
+    },
+    {
+      "files": "*.{cmp,page,component}",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}
