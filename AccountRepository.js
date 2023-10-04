@@ -2,7 +2,6 @@
  * Created by vladyslavviotsekhovskyi on 04.10.2023.
  */
 
-
 const { Client } = require('pg');
 
 const client = new Client({
@@ -14,32 +13,31 @@ const client = new Client({
 client.connect();
 
 class AccountRepository {
-    static async getAccounts(){
+    static async getAccounts() {
         let result = '';
         return new Promise((resolve, reject) => {
             client.query('SELECT id, name, sfid, phone, rating FROM salesforce.account', (err, data) => {
-                if(err){
+                if (err) {
                     reject(err);
                 }
-                for(let row of data.rows){
+                for (let row of data.rows) {
                     console.log(JSON.stringify(row));
                 }
                 resolve(data);
-            })
+            });
         });
     }
 
-    static async insertAccount(account){
+    static async insertAccount(account) {
         return new Promise((resolve, reject) => {
-            try{
-                client.query(`INSERT INTO salesforce.account (name, phone, rating) VALUES ($1, $2, $3)`, [account?.name, account?.phone, account?.rating]);
+            try {
+                client.query(`INSERT INTO salesforce.account (name, phone, rating, heroku_id__c) VALUES ($1, $2, $3, $4)`, [account?.name, account?.phone, account?.rating, account?.id]);
                 resolve('Account inserted successfully');
-            }catch(e){
+            } catch (e) {
                 reject(e);
             }
         });
     }
 }
-
 
 module.exports = AccountRepository;
