@@ -17,15 +17,11 @@ app.get('/api/v1/endpoint', (req, res) => {
 });
 
 app.get('/api/accounts', async (req, res) => {
-    let result = await AccountController.getAllAccounts();
-    res.json({ data: result });
+    res.json({ data: await AccountController.getAllAccounts() });
 });
 
 app.post('/api/accounts', async (req, res) => {
-    console.log('body');
-    console.log(req.body);
-    let result = await AccountController.insertAccount(req.body);
-    res.json({ data: result });
+    res.json({ data: await AccountController.insertAccount(req.body) });
 });
 
 app.listen(PORT, () => console.log(`✅  API Server started: http://${HOST}:${PORT}/api/v1/endpoint`));
