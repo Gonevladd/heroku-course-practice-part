@@ -28,6 +28,17 @@ class AccountRepository {
             })
         });
     }
+
+    static async insertAccount(account){
+        return new Promise((resolve, reject) => {
+            try{
+                client.query(`INSERT INTO salesforce.account (name, phone, rating) VALUES ($1, $2, $3)`, [account?.name, account?.phone, account?.rating]);
+                resolve('Account inserted successfully');
+            }catch(e){
+                reject(e);
+            }
+        });
+    }
 }
 
 

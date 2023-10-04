@@ -4,16 +4,25 @@
 
 const AccountRepository = require('./AccountRepository');
 
-class AccountController{
-
-    static async getAllAccounts(){
+class AccountController {
+    static async getAllAccounts() {
         let result = '';
-        try{
+        try {
             result = await AccountRepository.getAccounts();
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
 
+        return result;
+    }
+
+    static async insertAccount(account) {
+        let result = '';
+        try {
+            result = await AccountRepository.insertAccount(account);
+        } catch (e) {
+            console.log(e);
+        }
         return result;
     }
 }
