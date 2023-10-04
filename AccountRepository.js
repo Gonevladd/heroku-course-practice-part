@@ -16,16 +16,17 @@ client.connect();
 class AccountRepository {
     static async getAccounts(){
         let result = '';
-        await client.query('SELECT id, name, sfid, phone, rating FROM salesforce.account', (err, data) => {
-            if(err){
-                throw err;
-            }
-            for(let row of data.rows){
-                console.log(JSON.stringify(row));
-            }
-            result = data;
-        })
-        return result;
+        return new Promise((resolve, reject) => {
+            client.query('SELECT id, name, sfid, phone, rating FROM salesforce.account', (err, data) => {
+                if(err){
+                    reject(err);
+                }
+                for(let row of data.rows){
+                    console.log(JSON.stringify(row));
+                }
+                resolve(data);
+            })
+        });
     }
 }
 
