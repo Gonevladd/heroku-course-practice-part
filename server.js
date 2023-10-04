@@ -17,7 +17,10 @@ app.get('/api/v1/endpoint', (req, res) => {
 });
 
 app.get('/api/accounts', (req, res) => {
-    res.json({data: AccountController.getAllAccounts()});
+    let result = AccountController.getAllAccounts();
+    console.log('server');
+    console.log(result);
+    res.json({data: result});
 });
 
 
