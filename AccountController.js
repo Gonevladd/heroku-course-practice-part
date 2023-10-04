@@ -9,7 +9,7 @@ class AccountController{
     static async getAllAccounts(){
         let result = '';
         try{
-            result = await AccountRepository.getAllAccounts();
+            result = await AccountRepository.getAccounts();
         }catch(err){
             console.log(err);
         }
