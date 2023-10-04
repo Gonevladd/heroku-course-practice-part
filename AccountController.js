@@ -8,14 +8,12 @@ class AccountController{
 
     static async getAllAccounts(){
         let result = '';
-        // try{
+        try{
             result = await AccountRepository.getAccounts();
-        // }catch(err){
-        //     console.log(err);
-        // }
-        console.log('start --- account repository');
-        console.log(result);
-        console.log('end --- account repository');
+        }catch(err){
+            console.log(err);
+        }
+
         return result;
     }
 }
