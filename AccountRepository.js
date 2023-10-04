@@ -15,7 +15,7 @@ client.connect();
 
 class AccountRepository {
     static async getAccounts(){
-        client.query('SELECT id, name, sfid, phone, rating FROM salesforce.account', (err, data) => {
+        await client.query('SELECT id, name, sfid, phone, rating FROM salesforce.account', (err, data) => {
             if(err){
                 throw err;
             }
