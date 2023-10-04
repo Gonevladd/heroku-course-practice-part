@@ -13,6 +13,8 @@ class AccountController{
         }catch(err){
             console.log(err);
         }
+        console.log('account repository');
+        console.log(result);
         return result;
     }
 }
