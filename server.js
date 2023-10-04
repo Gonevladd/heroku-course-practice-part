@@ -16,8 +16,8 @@ app.get('/api/v1/endpoint', (req, res) => {
     res.json({ dev: true });
 });
 
-app.get('/api/accounts', (req, res) => {
-    let result = AccountController.getAllAccounts();
+app.get('/api/accounts', async (req, res) => {
+    let result = await AccountController.getAllAccounts();
     console.log('server');
     console.log(result);
     res.json({data: result});
