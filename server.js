@@ -11,7 +11,7 @@ const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3002;
 
 app.get('/api/v1/endpoint', (req, res) => {
-    res.json({ success: true });
+    res.json({ dev: true });
 });
 
 
