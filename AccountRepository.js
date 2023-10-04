@@ -15,6 +15,7 @@ client.connect();
 
 class AccountRepository {
     static async getAccounts(){
+        let result = '';
         await client.query('SELECT id, name, sfid, phone, rating FROM salesforce.account', (err, data) => {
             if(err){
                 throw err;
@@ -22,8 +23,9 @@ class AccountRepository {
             for(let row of data.rows){
                 console.log(JSON.stringify(row));
             }
-            return data;
+            result = data;
         })
+        return result;
     }
 }
 
