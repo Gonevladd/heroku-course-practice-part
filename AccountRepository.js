@@ -27,7 +27,6 @@ class AccountRepository {
             });
         });
     }
-
     static async insertAccount(account) {
         return new Promise((resolve, reject) => {
             try {

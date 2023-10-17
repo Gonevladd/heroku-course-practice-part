@@ -15,7 +15,6 @@ class AccountController {
 
         return result;
     }
-
     static async insertAccount(account) {
         let result = '';
         try {
