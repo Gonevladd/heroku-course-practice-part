@@ -23,6 +23,7 @@ let storage = multer.diskStorage({
 let upload = multer({ storage });
 
 const AccountController = require('./AccountController');
+const AccountService = require('./AccountService');
 
 app.get('/api/v1/endpoint', (req, res) => {
     res.json({ dev: true });
@@ -43,6 +44,7 @@ app.post('/api/accounts', upload.single('file'), (req, res) => {
         }
         console.log('file body');
         console.log(data);
+        AccountService.insertAccountFromJSON(data);
         res.send('File was successfully uploaded');
     });
     // res.json({ data: await AccountController.insertAccount(req.body) });
