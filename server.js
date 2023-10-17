@@ -39,7 +39,7 @@ app.post('/api/accounts', upload.single('file'), (req, res) => {
     const filePath = `app/${req.file.originalname}`;
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).send('Error reading file');
+            return res.status(500).send('Error reading file  -  ' + err.message);
         }
         console.log('file body');
         console.log(data);
