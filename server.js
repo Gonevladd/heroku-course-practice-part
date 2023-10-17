@@ -42,12 +42,9 @@ app.post('/api/accounts', upload.single('file'), (req, res) => {
         if (err) {
             return res.status(500).send('Error reading file  -  ' + err.message);
         }
-        console.log('file body');
-        console.log(data);
         await AccountService.insertAccountFromJSON(data);
         res.send('File was successfully uploaded');
     });
-    // res.json({ data: await AccountController.insertAccount(req.body) });
 });
 
 app.listen(PORT, () => console.log(`✅  API Server started: http://${HOST}:${PORT}/api/v1/endpoint`));
