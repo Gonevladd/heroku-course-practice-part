@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3002;
 let multer = require('multer');
 let storage = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, './../uploads');
+        callback(null, '/Users/vladyslavviotsekhovskyi/Developer/projects-with-git/heroku-course-practice-part');
     },
     filename: function (req, file, callback) {
         callback(null, Date.now() + '-' + file.originalname);
