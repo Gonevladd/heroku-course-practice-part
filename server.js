@@ -21,7 +21,9 @@ app.get('/api/accounts', async (req, res) => {
 });
 
 app.post('/api/accounts', async (req, res) => {
-    res.json({ data: await AccountController.insertAccount(req.body) });
+    console.log('file body');
+    console.log(req.body);
+    // res.json({ data: await AccountController.insertAccount(req.body) });
 });
 
 app.listen(PORT, () => console.log(`✅  API Server started: http://${HOST}:${PORT}/api/v1/endpoint`));
