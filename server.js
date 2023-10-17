@@ -38,13 +38,13 @@ app.post('/api/accounts', upload.single('file'), (req, res) => {
         return res.status(400).send('No file uploaded!');
     }
     const filePath = `/app/${req.file.originalname}`;
-    fs.readFile(filePath, 'utf8', (err, data) => {
+    fs.readFile(filePath, 'utf8', async (err, data) => {
         if (err) {
             return res.status(500).send('Error reading file  -  ' + err.message);
         }
         console.log('file body');
         console.log(data);
-        AccountService.insertAccountFromJSON(data);
+        await AccountService.insertAccountFromJSON(data);
         res.send('File was successfully uploaded');
     });
     // res.json({ data: await AccountController.insertAccount(req.body) });
