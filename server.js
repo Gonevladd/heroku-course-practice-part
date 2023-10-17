@@ -36,7 +36,7 @@ app.post('/api/accounts', upload.single('file'), (req, res) => {
     if (!req.file) {
         return res.status(400).send('No file uploaded!');
     }
-    const filePath = `uploads/${req.file.originalname}`;
+    const filePath = `app/${req.file.originalname}`;
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error reading file');
