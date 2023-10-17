@@ -22,7 +22,7 @@ app.get('/api/accounts', async (req, res) => {
 
 app.post('/api/accounts', async (req, res) => {
     console.log('file body');
-    console.log(req.body);
+    console.log(req);
     // res.json({ data: await AccountController.insertAccount(req.body) });
 });
 
