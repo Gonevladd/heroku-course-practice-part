@@ -13,11 +13,8 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-<<<<<<< Updated upstream
-=======
   },
   "scripts": {
     "test": "jest"
->>>>>>> Stashed changes
   }
 }
